@@ -1,0 +1,33 @@
+server.port: 8085
+
+spring:
+  profiles:
+    active: dev
+    application:
+      name: proiect-testare
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: daubin3tar3
+    url: jdbc:postgresql://localhost:5432/testare
+    hikari:
+      pool-name: postgres
+      maximum-pool-size: 25
+      minimum-idle: 5
+      connection-test-query: select 1
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+management:
+  endpoints.web.base-path: /manage
+  endpoint:
+    health:
+      show-details: always
+  health:
+    db:
+      enabled: false
+
